@@ -1,4 +1,4 @@
-![Star Wars Logo](src/logo.svg?raw=true "Star Wars Logo")
+![Star Wars Logo](src/logo.svg "Star Wars Logo")
 
 # Star Wars React SPA
 
