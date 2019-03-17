@@ -74,5 +74,5 @@ SPA состоит из трёх разделов - Films, People, Starships.
 
 Модальное окно с дозагрузкой
 
-![Модальное окно с дозагрузкой](screenshots/screenshot_5.png?raw=true "Модальное окно с дозагрузкой")
+![Модальное окно с дозагрузкой](screenshots/screenshot_7.png?raw=true "Модальное окно с дозагрузкой")
 
