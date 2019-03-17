@@ -1,5 +1,7 @@
 import React from 'react';
-import {Header, Icon, Grid, Segment} from "semantic-ui-react";
+import {Grid, Header, Icon, Segment} from "semantic-ui-react";
+
+import {genderReveal} from "./AuxFns";
 
 
 export const PeopleListLayout = (props) => {
@@ -14,7 +16,7 @@ export const PeopleListLayout = (props) => {
                     <Grid.Column textAlign='center'>
                         <Header icon>
                             <Icon
-                                className={entry.gender === 'male' || entry.gender === 'female' ? entry.gender : 'user secret'}
+                                className={genderReveal(entry.gender)}
                             />
                             {entry.name}
                         </Header>

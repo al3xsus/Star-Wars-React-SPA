@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
-import {Input, Grid, Segment} from "semantic-ui-react";
+import {Dropdown, Grid, Input, Segment} from "semantic-ui-react";
+
+import {FilterOptions, inputPlaceholder} from "./AuxFns";
 
 
 class SearchFilterSortLayout extends Component {
 
     defaultState = {
-        search: ""
+        search: "",
+        filterField: '',
+        filterValue: ''
     };
 
     constructor(props) {
@@ -14,38 +18,24 @@ class SearchFilterSortLayout extends Component {
     }
 
     componentDidMount() {
-        if (this.props.search !== this.state.search) this.setState({search: this.props.search})
+        let newState = {...this.state};
+        if (this.props.search !== this.state.search) newState.search = this.props.search;
+        if (this.props.filterField !== this.state.filterField) newState.filterField = this.props.filterField;
+        if (this.props.filterValue !== this.state.filterValue) newState.filterValue = this.props.filterValue;
+        this.setState(newState)
     }
 
-    handleChange = (e, { value }) => {
+    handleChange = (change, field) => {
         const newState = { ...this.state };
-        newState.search = value;
+        newState[field] = change;
         this.setState(newState);
     };
 
     render() {
-        const {entity, onSearchChange} = this.props;
-        const {search} = this.state;
+        const {entity, onSearchChange, onFilterChange} = this.props;
+        const {search, filterField, filterValue} = this.state;
 
-        let options = [];
-
-        switch (entity) {
-            case 'films':
-                options = [
-                    { key: 'title', text: 'title', value: 'title' },
-                ];
-                break;
-            case 'people':
-                options = [
-                    { key: 'name', text: 'name', value: 'name' },
-                ];
-                break;
-            default:
-                options = [
-                    { key: 'name', text: 'name', value: 'name' },
-                    { key: 'model', text: 'model', value: 'model' }
-                ]
-        }
+        let options = FilterOptions(entity);
 
         return <Grid.Row key={'search-filter-sort'}>
             <Grid.Column>
@@ -56,21 +46,35 @@ class SearchFilterSortLayout extends Component {
                                 <Input
                                     fluid={true}
                                     value={search}
-                                    onChange={this.handleChange}
+                                    onChange={(event, change) => this.handleChange(change.value, "search")}
                                     icon={{
                                         name: 'search',
                                         circular: true,
                                         link: true,
                                         onClick: () => onSearchChange(search)
                                     }}
-                                    placeholder={ entity === 'films' ? 'title' : entity === 'people' ? 'name' : 'name or model'}
+                                    placeholder={inputPlaceholder(entity)}
                                 />
                             </Grid.Column>
                             <Grid.Column floated={'right'}>
                                 <Input
                                     fluid={true}
-                                    placeholder={ 'filter under construction' }
-                                    disabled={true}
+                                    label={<Dropdown
+                                        options={options}
+                                        item
+                                        value={filterField}
+                                        onChange={(event, change) => this.handleChange(change.value, "filterField")}
+                                        placeholder={'Filter'}
+                                    />}
+                                    value={filterValue}
+                                    onChange={(event, change) => this.handleChange(change.value, "filterValue")}
+                                    icon={{
+                                        name: 'filter',
+                                        circular: true,
+                                        link: true,
+                                        onClick: () => onFilterChange(filterField, filterValue)
+                                    }}
+                                    placeholder={'Value'}
                                 />
                             </Grid.Column>
                         </Grid.Row>
