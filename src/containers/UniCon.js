@@ -127,9 +127,9 @@ class UniCon extends Component {
             } else if (key === 'homeworld') items.push(value)
         }
 
-        const fetchAll = (urls) => {
+        const fetchAll = () => {
             return Promise.all(
-                urls.map(url => fetch(url)
+                items.map(url => fetch(url)
                     .then(r => r.text())
                     .then(data => JSON.parse(data))
                     .then(data => ({data, url}))
@@ -138,7 +138,7 @@ class UniCon extends Component {
             )
         };
 
-        let responses = await fetchAll(items);
+        let responses = await fetchAll();
         let index = null;
         if (newState.modalData.title) index = newState.data.findIndex(x => x.title === newState.modalData.title);
         else index = newState.data.findIndex(x => x.name === newState.modalData.name);
