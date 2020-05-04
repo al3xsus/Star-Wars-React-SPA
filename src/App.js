@@ -10,20 +10,20 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-        <BrowserRouter>
-          <Fragment>
-            <FormHeader/>
-            <div className="content">
-              <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/films" render={() => <UniCon key={'films'} entity={'films'}/>}/>
-                <Route exact path="/people" render={() => <UniCon key={'people'} entity={'people'}/>}/>
-                <Route exact path="/starships" render={() => <UniCon key={'starships'} entity={'starships'}/>}/>
-                <Route component={Form404}/>
-              </Switch>
-            </div>
-          </Fragment>
-        </BrowserRouter>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Fragment>
+          <FormHeader/>
+          <div className="content">
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/films" render={() => <UniCon key={'films'} entity={'films'}/>}/>
+              <Route exact path="/people" render={() => <UniCon key={'people'} entity={'people'}/>}/>
+              <Route exact path="/starships" render={() => <UniCon key={'starships'} entity={'starships'}/>}/>
+              <Route component={Form404}/>
+            </Switch>
+          </div>
+        </Fragment>
+      </BrowserRouter>
     );
   }
 }

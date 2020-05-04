@@ -3,17 +3,20 @@
   "version": "0.9.5",
   "private": true,
   "dependencies": {
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.8",
-    "semantic-ui-react": "^0.85.0"
+    "gh-pages": "^2.2.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -23,5 +26,31 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "author": {
+    "name": "Alexandr Lavrentyev",
+    "email": "al3xsus@pm.me"
+  },
+  "contributors": [
+    {
+      "name": "Alexandr Lavrentyev",
+      "email": "al3xsus@pm.me"
+    }
+  ],
+  "homepage": "https://al3xsus.github.io/Star-Wars-React-SPA/",
+  "license": "MIT",
+  "keywords": [
+    "spa",
+    "react",
+    "semantic-ui-react",
+    "search",
+    "star-wars",
+    "API",
+    "https://swapi.dev/"
+  ],
+  "description": "A simple SPA about Star Wars universe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/al3xsus/Star-Wars-React-SPA"
+  }
 }
