@@ -1,7 +1,17 @@
 ![Star Wars Logo](src/logo.svg "Star Wars Logo")
 
+# ⚠️ ARCHIVED / HISTORICAL MILESTONE
+
+> **Notice:** This repository is no longer actively maintained and is preserved here solely as a historical archive of early foundational work.
+
+### Why is this public?
+I maintain this project publicly as a checkpoint in my engineering timeline. It represents early exploration into frontend routing, public REST API consumption (`SWAPI`), and core state management patterns in React, serving as a direct contrast to my modern architectural practices.
+
+---
+
 # Star Wars React SPA
 
+A client-side Single Page Application designed to explore characters, planets, and starships using the public Star Wars API.
 ___
 
 [Версия на русском языке](README_ru.md)
@@ -12,23 +22,24 @@ ___
 
 ___
 
-A simple SPA dedicated to the Star Wars universe.
-Technology stack: React (create-react-app), Semantic UI React, SPA.
-The API [https://swapi.dev/](https://swapi.dev/) was used to obtain information.
-Color palette source - [https://loading.io/color/feature/StarWars-Yoda](https://loading.io/color/feature/StarWars-Yoda)
+Technology stack: React (create-react-app), Semantic UI React.
+
+The SWAPI [https://swapi.dev/](https://swapi.dev/) was used to obtain information.
+
+Color palette source: [https://loading.io/color/feature/StarWars-Yoda](https://loading.io/color/feature/StarWars-Yoda)
 
 ## How it works
 
-SPA consists of three sections - Films, People, Starships.
+SPA consists of three sections: Films, People, Starships.
 Each of the sections has a search and filter panel, a list of objects, and a pagination panel.
 
-How to search? Type the desired search expression (every section has its own hint for the desired field) and click on 
+**How to search?** Type the desired search expression (every section has its own hint for the desired field) and click on 
 the search icon.
 
-How to filter? Select the desired operation from the drop-down list, type the desired value for filtration and click on 
+**How to filter?** Select the desired operation from the drop-down list, type the desired value for filtration and click on 
 the filter icon.
 
-How to reset the result? Clear the search and click on the icon again.
+**How to reset the result?** Clear the search and click on the icon again.
 
 When you click on an object, a modal window with more complete information will appear on the screen. Part of 
 information requiring additional loading will be presented as links. If you click on the button on the right, those 
@@ -36,30 +47,6 @@ information links will be downloaded and processed.
 
 **ATTENTION. Sometimes an API can take a very long time to respond. That is why getting all data is derived by separate 
 functionality.**
-
-## Scripts
-
-Run from the project folder:
-
-### `yarn add`
-
-To install modules
-
-### `yarn start`
-
-To launche the application in development mode at [http: // localhost: 3000] (http: // localhost: 3000).
-
-### `yarn build`
-
-To build project in the `build` folder.
-
-### `yarn global add serve`
-
-To install a local server.
-
-### `serve -s build`
-
-To run built project on a local server.
 
 ## Screenshots
 
